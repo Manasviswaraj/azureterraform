@@ -1,0 +1,27 @@
+import re
+file='text.txt'
+pattern= r"helloworld"
+
+def find_pattern(file,pattern):
+a=file.read()
+
+re.findall(pattern,a)
+
+provider "aws"{
+}
+variable "amilist"{
+type= list
+default= [ami1, ami2, ami3]
+
+variable "instancename"
+type= list
+default= [i1, i2, i3]
+
+
+resource "aws_instance" "instance"{
+ami=var.amilist[count.index]
+instance_type="t2micro"
+count=3
+tags={
+  Name= var.instancename[count.index]}
+
